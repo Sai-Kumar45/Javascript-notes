@@ -24,6 +24,7 @@ console.log(min_arr2);
 // print maximum number of given array
 
 // using forof method for better time complexity
+
 let maxiarr = [4, 6, 9, 3, 24, 54, 67, 87, 87];
 let max_arr2 = maxiarr[0];
 for (let n of maxiarr) {
