@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="">Username</label>
+            <input type="text" id="myuser" placeholder="Enter Username">
+        </div>
+        <div>
+            <label for="">Amount</label>
+            <input type="number" id="myamt" placeholder="Enter Amount">
+        </div>
+        <div>
+            <label for="">Age</label>
+            <input type="number" id="myage" placeholder="Enter Age">
+        </div>
+        <div>
+            <label for="">Tenure</label>
+            <input type="number" id="timeperiod" placeholder="Enter Username">
+        </div>
+        <button type="submit" id="subBtn">Calculate Amount</button>
+        <label for="" id="result"></label>
+    </form>
+    <script>
+        document.getElementById("subBtn").addEventListener('click', (e) => {
+            var uname = document.getElementById("myuser").value;
+            var uamt = document.getElementById("myamt").value;
+            var uage = document.getElementById("myage").value;
+            var utenure = document.getElementById("timeperiod").value;
+            var totalAmount;
+            var rateofintrst;
+            var gst;
+            if (uage > 60) {
+                rateofintrst = 8;
+            }
+            else if (uage > 40 && uage < 60) {
+                rateofintrst = 7;
+            }
+            else {
+                rateofintrst = 6;
+            }
+            if (utenure > 4) {
+                gst = 0.05
+            }
+            total_Amount = 1 + utenure * rateofintrst / 100;
+            final_amount = uamt * total_Amount;
+            maturity_amount = final_amount - final_amount * gst;
+            document.getElementById("result").innerHTML = maturity_amount;
+            e.preventDefault();
+        });
+
+    </script>
+</body>
+
+</html>

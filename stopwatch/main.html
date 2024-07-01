@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="maincontainer">
+
+        <div class="container">
+            <div class="time">
+                <h1 id="myh1">0:0:0</h1>
+            </div>
+            <div class="timecontrols">
+                <button onclick="startTime()">Start</button>
+                <button onclick="pauseTm()">Pause</button>
+                <button onclick="resetTm()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var hrs = 0;
+        var min = 0;
+        var sec = 0;
+        var mytime;
+        var ptime;
+        function getTime() {
+            document.getElementById("myh1").innerHTML = hrs + ":" + min + ":" + sec;
+            sec++
+            if (sec > 60) {
+                sec = 0;
+                min++;
+                if (min > 60) {
+                    min = 0;
+                    hrs++
+                    if (hrs == 24) {
+                        hrs = 0;
+                    }
+                }
+
+            }
+
+        }
+        function startTime() {
+            mytime = setInterval(getTime, 1000);
+        }
+        function pauseTm() {
+            ptime = clearInterval(mytime)
+
+        }
+        function resetTm() {
+            hrs = 0
+            min = 0
+            sec = 0
+            document.getElementById("myh1").innerHTML = hrs + ":" + min + ":" + sec;
+        }
+
+    </script>
+</body>
+
+</html>

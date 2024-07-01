@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="">Username</label>
+            <input type="text" id="myuser" placeholder="Enter Username">
+        </div>
+        <div>
+            <label for="">Password</label>
+            <input type="text" id="pwd" placeholder="Enter Password" required pattern="[a-zA-Z0-9@]{7}">
+        </div>
+        <div>
+            <label for="">Amount</label>
+            <input type="number" id="myamt" placeholder="Enter Amount">
+        </div>
+        <div>
+            <select name="" id="loantype">
+                <option value="" disabled>select loan</option>
+                <option value="Home loan">Home loan</option>
+                <option value="Vehicle loan">Vehicle loan </option>
+                <option value="Education loan">Education loan</option>
+                <option value="Personal loan">Personal loan</option>
+
+            </select>
+        </div>
+        <div>
+            <label for="">Tenure</label>
+            <input type="number" id="timeperiod" placeholder="Enter tenure">
+        </div>
+        <button type="submit" id="subBtn">Calculate monthly emi</button>
+        <label for="" id="result"></label>
+    </form>
+    <script>
+        document.getElementById("subBtn").addEventListener("click", (e) => {
+            var myun = document.getElementById("myuser").value;
+            var mypwd = document.getElementById("pwd").value;
+            var reqpwd = myun.slice(0, 3) + "@123"
+            console.log(mypwd)
+            if (reqpwd == mypwd) {
+                var loan_type = document.getElementById("loantype").value;
+                var t = document.getElementById("timeperiod").value;
+                var pa = document.getElementById("myamt").value;
+                var ta;
+                var fa;
+                var pf;
+                var roi;
+                if (loan_type == "Home loan") {
+                    roi = 11
+                    ta = 1 + t * roi / 100
+                    fa = pa * ta;
+                    document.getElementById("result").innerHTML = fa;
+                }
+            }
+            else {
+                document.getElementById("result").innerHTML = "enter valid password";
+            }
+
+            e.preventDefault();
+        });
+
+    </script>
+</body>
+
+</html>
