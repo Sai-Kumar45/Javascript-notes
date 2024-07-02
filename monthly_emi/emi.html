@@ -46,22 +46,24 @@
             var reqpwd = myun.slice(0, 3) + "@123"
 
             if (reqpwd == mypwd) {
-                var loan_type = document.getElementById("loantype").value;
-                var t = document.getElementById("timeperiod").value;
-                var pa = document.getElementById("myamt").value;
+                var loan_type = parseInt(document.getElementById("loantype").value);
+                var t = parseInt(document.getElementById("timeperiod").value);
+                var pa = parseInt(document.getElementById("myamt").value);
 
                 var ta;
                 var fa;
                 var pf = 5000;
+                var months = t * 12
                 ta = 1 + t * loan_type / 100
                 fa = pa * ta;
+
                 if (fa > 500000) {
                     fa += pf
-                    document.getElementById("result").innerHTML = "per month emi is " + fa / t * 12 + ` for ${t} years`;
+                    document.getElementById("result").innerHTML = "per month emi is " + fa / months.toFixed(2) + ` for ${t} years`;
                 }
                 else {
 
-                    document.getElementById("result").innerHTML = "per month emi is " + fa / t * 12 + ` for ${t} years`;
+                    document.getElementById("result").innerHTML = "per month emi is " + fa / months.toFixed(2) + ` for ${t} years`;
                 }
 
             }
