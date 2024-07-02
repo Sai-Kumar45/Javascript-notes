@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <h1>Calculate monthly EMI</h1>
     <form action="">
         <div>
             <label for="">Username</label>
@@ -23,11 +24,11 @@
         </div>
         <div>
             <select name="" id="loantype">
-                <option value="" disabled>select loan</option>
-                <option value="Home loan">Home loan</option>
-                <option value="Vehicle loan">Vehicle loan </option>
-                <option value="Education loan">Education loan</option>
-                <option value="Personal loan">Personal loan</option>
+                <option value="">select loan type</option>
+                <option value="11">Home loan</option>
+                <option value="15">Vehicle loan </option>
+                <option value="5">Education loan</option>
+                <option value="12">Personal loan</option>
 
             </select>
         </div>
@@ -43,22 +44,28 @@
             var myun = document.getElementById("myuser").value;
             var mypwd = document.getElementById("pwd").value;
             var reqpwd = myun.slice(0, 3) + "@123"
-            console.log(mypwd)
+
             if (reqpwd == mypwd) {
                 var loan_type = document.getElementById("loantype").value;
                 var t = document.getElementById("timeperiod").value;
                 var pa = document.getElementById("myamt").value;
+
                 var ta;
                 var fa;
-                var pf;
-                var roi;
-                if (loan_type == "Home loan") {
-                    roi = 11
-                    ta = 1 + t * roi / 100
-                    fa = pa * ta;
-                    document.getElementById("result").innerHTML = fa;
+                var pf = 5000;
+                ta = 1 + t * loan_type / 100
+                fa = pa * ta;
+                if (fa > 500000) {
+                    fa += pf
+                    document.getElementById("result").innerHTML = "per month emi is " + fa / t * 12 + ` for ${t} years`;
                 }
+                else {
+
+                    document.getElementById("result").innerHTML = "per month emi is " + fa / t * 12 + ` for ${t} years`;
+                }
+
             }
+
             else {
                 document.getElementById("result").innerHTML = "enter valid password";
             }

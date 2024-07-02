@@ -3,4 +3,8 @@ const movies = [
   { moviename: "RRR", hero: "Ram charan,NTR", relesaeDate: "2022-03-24" },
   { moviename: "Hanuman", hero: "teja sajja", relesaeDate: "2024-02-27" },
 ];
-movies.forEach((a) => {});
+movies.sort((a, b) => a.relesaeDate.localeCompare(b.relesaeDate));
+
+movies.forEach((a) => {
+  console.log(a);
+});
