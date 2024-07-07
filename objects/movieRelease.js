@@ -4,7 +4,8 @@ const movies = [
   { moviename: "Hanuman", hero: "teja sajja", relesaeDate: "2024-02-27" },
 ];
 movies.sort((a, b) => a.relesaeDate.localeCompare(b.relesaeDate));
+console.log(movies);
 
-movies.forEach((a) => {
-  console.log(a);
-});
+// movies.forEach((a) => {
+//   console.log(a);
+// });

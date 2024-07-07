@@ -12,10 +12,10 @@
 
     <script>
         function da() {
-            let d = new Date().toLocaleTimeString();
+            var d = new Date().toLocaleTimeString()
             document.getElementById('clock').innerHTML = d;
         }
-
+        da();
         function updatetime() {
             setInterval(da, 1000);
         }

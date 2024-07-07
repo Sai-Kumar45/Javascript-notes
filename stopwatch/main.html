@@ -33,10 +33,10 @@
         function getTime() {
             document.getElementById("myh1").innerHTML = hrs + ":" + min + ":" + sec;
             sec++
-            if (sec > 60) {
+            if (sec > 59) {
                 sec = 0;
                 min++;
-                if (min > 60) {
+                if (min > 59) {
                     min = 0;
                     hrs++
                     if (hrs == 24) {
