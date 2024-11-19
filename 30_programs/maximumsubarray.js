@@ -13,6 +13,6 @@ function arr(a) {
 
   return maxsum;
 }
-var array = [-2, -1, 0, -2, 3, 1, -1, 6];
+var array = [-2, -1,3, 0, -2, 1, -1, 6];
 var res = arr(array);
 console.log(res);
