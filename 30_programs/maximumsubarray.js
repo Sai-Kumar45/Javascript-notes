@@ -1,14 +1,16 @@
 function arr(a) {
   var maxsum = -Infinity;
+  var sum = 0;
   for (let i = 0; i < a.length; i++) {
-    var sum = 0;
-    for (let j = i; j <= i; j++) {
-      sum += a[j];
-      if (maxsum < sum) {
-        maxsum = sum;
-      }
+    sum += a[i];
+    if (maxsum < sum) {
+      maxsum = sum;
+    }
+    if (sum < 0) {
+      sum = 0;
     }
   }
+
   return maxsum;
 }
 var array = [-2, -1, 0, -2, 3, 1, -1, 6];
